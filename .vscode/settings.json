@@ -1,0 +1,16 @@
+{
+  // autopep8
+  "python.formatting.provider": "none",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnType": true,
+    "editor.tabSize": 2
+  },
+  "autopep8.args": [
+    "--experimental",
+    "--indent-size=2",
+    "--max-line-length=80"
+  ],
+  // python
+  "python.defaultInterpreterPath": "/usr/local/bin/python3",
+}

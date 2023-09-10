@@ -1,0 +1,54 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+  "name": "${containerWorkspaceFolder}",
+
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true
+		},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+			"plugins": "git zsh-autosuggestions zsh-syntax-highlighting dirhistory history colored-man-pages web-search",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git",
+			"username": "nonroot"
+		},
+	},
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// zsh
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				// Git
+				"git.confirmSync": false,
+				"git.ignoreMissingGitWarning": true,
+				"git.openRepositoryInParentFolders": "never",
+			},
+			"extensions": [
+					"ms-python.python",
+					"KevinRose.vsc-python-indent",
+					"njpwerner.autodocstring",
+					"VisualStudioExptTeam.vscodeintellicode",
+					"Gruntfuggly.todo-tree",
+					"ms-python.autopep8"
+			]
+		}
+	},
+
+	"mounts": [
+		{
+			"source": "${localEnv:HOME}/data",
+			"target": "/data",
+			"type": "bind"
+		}
+	],
+
+	"containerUser": "nonroot"
+}
